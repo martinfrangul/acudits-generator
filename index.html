@@ -12,17 +12,37 @@
       crossorigin="anonymous"
     />
   </head>
-  <body>
+  <body class="m-auto">
     <div
-      class="container-fluid d-flex justify-content-center align-items-center"
+      class="container-fluid h-100 d-flex flex-column align-items-center justify-content-center"
     >
-      <div class="container w-100 h-100"></div>
+      <div class="row">
+        <div class="col mx-auto">
+          <div class="text-center">
+            <h1>ACUDITS</h1>
+          </div>
+        </div>
+      </div>
+      <div class="row p-5 m-3" >
+        <div class="col mx-auto" style="height: 10rem; width: 67rem">
+          <div class="text-center">
+            <p class="fs-4" id="joke"></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center justify-content-center">
+          <button type="button" id="nexJoke" class="btn btn-primary">
+            Next joke
+          </button>
+        </div>
+      </div>
     </div>
   </body>
-  <script src="./build/index.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"
   ></script>
+  <script src="./build/index.js"></script>
 </html>
