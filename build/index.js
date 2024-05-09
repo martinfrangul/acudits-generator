@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 let getNextJoke = document.getElementById('nexJoke');
-getNextJoke.addEventListener('click', function () {
+function getJoke() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const response = yield fetch('https://icanhazdadjoke.com/', {
@@ -26,4 +26,7 @@ getNextJoke.addEventListener('click', function () {
             console.log('ERROR:', error);
         }
     });
-});
+}
+;
+getNextJoke.addEventListener('click', getJoke);
+window.addEventListener('load', getJoke);

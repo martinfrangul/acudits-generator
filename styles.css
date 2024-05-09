@@ -1,5 +1,11 @@
 body {
     margin: auto auto;
     max-width: 1200px;
-    height: 100vh;
+    height: 600px;
+}
+
+.jokeBox {
+    height: 11rem;
+    width: 63rem;
+    background-color: rgb(167, 227, 167, 0.6);
 }
