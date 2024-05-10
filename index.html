@@ -16,17 +16,25 @@
     <div
       class="container-fluid h-100 d-flex flex-column align-items-center justify-content-center"
     >
-      <div class="row">
-        <div class="col mx-auto">
+      <div class="row mx-auto d-flex flex-row align-items-center justify-content-center">
+        <div class="col-9 d-flex justify-content-end">
           <div class="text-center">
-            <h1>ACUDITS</h1>
+            <h1>Jokes (to prevent you from killing your boss)</h1>
           </div>
         </div>
+        <div class="col-3">
+          <img src="./images/sonrisa.png" alt="title-icon" style="width: 40%" />
+        </div>
       </div>
-      <div class="row p-5 m-4 border border-dark rounded jokeBox d-flex justify-content-center align-items-center" >
-        <div class="col mx-auto d-flex justify-content-center align-items-center">
-          <div class="text-center ">
-            <p class="fs-4" id="joke"></p>
+      <div
+        class="card row p-5 m-4 border border-dark rounded jokeBox d-flex justify-content-center align-items-center"
+        style="background-color: rgba(83, 181, 77, 0.8)"
+      >
+        <div
+          class="col card-body mx-auto d-flex justify-content-center align-items-center"
+        >
+          <div class="text-center">
+            <p class="fs-4 card-text" style="color: rgb(0, 0, 0);" id="joke"></p>
           </div>
         </div>
       </div>

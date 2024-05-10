@@ -1,11 +1,17 @@
 body {
-    margin: auto auto;
-    max-width: 1200px;
-    height: 600px;
+    margin: auto;
+    max-width: 1280px;
+    height: 100vh;
+    background-image: url(./images/coffee-bg-trans.png);
+    background-repeat: repeat; /* Asegura que la imagen de fondo se repita */
 }
+  
 
 .jokeBox {
-    height: 11rem;
-    width: 63rem;
-    background-color: rgb(167, 227, 167, 0.6);
+  height: 11rem;
+  width: 63rem;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); /* Ajusta la sombra según sea necesario */
+  background-color: rgba(83, 181, 77, 0.8);
 }
+
