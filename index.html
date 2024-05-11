@@ -17,24 +17,25 @@
       class="container-fluid h-100 d-flex flex-column align-items-center justify-content-center"
     >
       <div class="row mx-auto d-flex flex-row align-items-center justify-content-center">
-        <div class="col-9 d-flex justify-content-end">
-          <div class="text-center">
-            <h1>Jokes (to prevent you from killing your boss)</h1>
+        <div class="col-md-5 col-lg-8 col-6 d-flex justify-content-end">
+          <div class="joke-title-container text-center p-3">
+            <h1>Jokes</h1>
+            <hr style="height:3px; opacity: 0.7">
+            <h3>(to prevent you from killing your boss)</h3>
           </div>
         </div>
-        <div class="col-3">
-          <img src="./images/sonrisa.png" alt="title-icon" style="width: 40%" />
+        <div class="col-md-3 col-lg-4 col-2">
+          <img class="title-icon" src="./images/sonrisa.png" alt="title-icon"/>
         </div>
       </div>
-      <div
-        class="card row p-5 m-4 border border-dark rounded jokeBox d-flex justify-content-center align-items-center"
-        style="background-color: rgba(83, 181, 77, 0.8)"
+      <div 
+        class="joke-box row p-5 m-4 rounded d-flex justify-content-center align-items-center"
       >
         <div
-          class="col card-body mx-auto d-flex justify-content-center align-items-center"
+          class="col-md-6 col-lg-12 joke-text-cont mx-auto d-flex justify-content-center align-items-center"
         >
           <div class="text-center">
-            <p class="fs-4 card-text" style="color: rgb(0, 0, 0);" id="joke"></p>
+            <p class="joke-text" style="color: rgb(0, 0, 0);" id="joke"></p>
           </div>
         </div>
       </div>

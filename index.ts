@@ -13,6 +13,7 @@ async function getJoke () {
         const data = await response.json();
         let jokeText = document.getElementById('joke');
         jokeText.innerText = data.joke;
+        ajustarTexto()
     } catch (error) {
         console.log('ERROR:', error);
     }
