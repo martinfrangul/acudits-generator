@@ -9,8 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 let getNextJoke = document.getElementById('nexJoke');
+let jokeData;
+function isEmptyObject(obj) {
+    return Object.keys(obj).length === 0;
+}
 function getJoke() {
     return __awaiter(this, void 0, void 0, function* () {
+        if (isEmptyObject(voteObject) === false) {
+            reportJokesListener();
+        }
         try {
             const response = yield fetch('https://icanhazdadjoke.com/', {
                 method: 'GET',
@@ -21,13 +28,42 @@ function getJoke() {
             const data = yield response.json();
             let jokeText = document.getElementById('joke');
             jokeText.innerText = data.joke;
-            ajustarTexto();
+            jokeData = data;
+            voteObject = {};
+            console.log(reportJokes);
+            return jokeData;
         }
         catch (error) {
             console.log('ERROR:', error);
         }
     });
 }
-;
+const reportJokesListener = () => {
+    reportJokes.push(voteObject);
+};
+// VOTOS
+const reportJokes = [];
+let voteObject = {};
+const vote1Listener = () => {
+    voteObject = {
+        joke: jokeData.joke,
+        score: 1,
+        date: Date(),
+    };
+};
+const vote2Listener = () => {
+    voteObject = {
+        joke: jokeData.joke,
+        score: 2,
+        date: Date(),
+    };
+};
+const vote3Listener = () => {
+    voteObject = {
+        joke: jokeData.joke,
+        score: 3,
+        date: Date(),
+    };
+};
 getNextJoke.addEventListener('click', getJoke);
 window.addEventListener('load', getJoke);
