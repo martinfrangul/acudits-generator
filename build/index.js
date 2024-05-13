@@ -44,26 +44,29 @@ const reportJokesListener = () => {
 // VOTOS
 const reportJokes = [];
 let voteObject = {};
-const vote1Listener = () => {
-    voteObject = {
-        joke: jokeData.joke,
-        score: 1,
-        date: Date(),
-    };
-};
-const vote2Listener = () => {
-    voteObject = {
-        joke: jokeData.joke,
-        score: 2,
-        date: Date(),
-    };
-};
-const vote3Listener = () => {
-    voteObject = {
-        joke: jokeData.joke,
-        score: 3,
-        date: Date(),
-    };
+const voteListener = (id) => {
+    const date = new Date();
+    if (id === 1) {
+        voteObject = {
+            joke: jokeData.joke,
+            score: 1,
+            date: date.toISOString(),
+        };
+    }
+    if (id === 2) {
+        voteObject = {
+            joke: jokeData.joke,
+            score: 2,
+            date: date.toISOString(),
+        };
+    }
+    if (id === 3) {
+        voteObject = {
+            joke: jokeData.joke,
+            score: 3,
+            date: date.toISOString(),
+        };
+    }
 };
 getNextJoke.addEventListener('click', getJoke);
 window.addEventListener('load', getJoke);
