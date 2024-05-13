@@ -19,14 +19,16 @@
       <div
         class="row mx-auto d-flex text-center flex-row align-items-center justify-content-center"
       >
-        <div class="col-md-4 col-lg-5 col-5 d-flex justify-content-center">
+        <div class="col-md-4 col-lg-5 col-sm-5 d-flex justify-content-center">
           <div class="joke-title-container text-center p-3">
             <h1>Jokes</h1>
             <hr style="height: 3px; opacity: 0.7" />
             <h3>(to prevent you from killing your boss)</h3>
           </div>
         </div>
-        <div class="col-md-2 col-lg-2 col-1 d-flex justify-content-center align-items-center">
+        <div
+          class="col-md-2 col-lg-2 col-sm-1 d-flex justify-content-center align-items-center"
+        >
           <a id="nexJoke" style="cursor: pointer"
             ><img
               class="title-icon"
@@ -36,11 +38,33 @@
             <h4>NEXT JOKE</h4></a
           >
         </div>
-        <div class="col-lg-2 ">
+        <div class="col-lg-2 col-md-2 col-sm-2">
           <div class="votes-container d-flex flex-column">
-            <button class="btn bg-success mb-3 text-white" id="vote-1" onclick="voteListener(1)">EXCELENTE</button>
+            <a id="vote-1" onclick="voteListener(1)"
+              ><img
+                class="vote-icon mb-3"
+                src="./images/risa.png"
+                alt="vote-icon"
+                style="cursor: pointer"
+            /></a>
+            <a id="vote-2" onclick="voteListener(2)"
+              ><img
+                style="cursor: pointer"
+                class="vote-icon mb-3"
+                src="./images/silencioso.png"
+                alt="vote-icon"
+            /></a>
+            <a id="vote-2" onclick="voteListener(3)"
+              ><img
+                style="cursor: pointer"
+                class="vote-icon mb-3"
+                src="./images/pensando.png"
+                alt="vote-icon"
+            /></a>
+
+            <!-- <button class="btn bg-success mb-3 text-white" id="vote-1" onclick="voteListener(1)">EXCELENTE</button>
             <button class="btn bg-warning mb-3" id="vote-2" onclick="voteListener(2)">MÁS O MENOS</button>
-            <button class="btn bg-danger text-white" id="vote-3" onclick="voteListener(3)">MALO</button>
+            <button class="btn bg-danger text-white" id="vote-3" onclick="voteListener(3)">MALO</button> -->
           </div>
         </div>
       </div>
@@ -56,8 +80,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col text-center justify-content-center">
-        </div>
+        <div class="col text-center justify-content-center"></div>
       </div>
     </div>
   </body>
