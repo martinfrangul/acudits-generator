@@ -1,22 +1,53 @@
-let getNextJoke = document.getElementById('nexJoke');
+let getNextJoke = document.getElementById('nextJoke') as HTMLButtonElement;
 
-let jokeData: object;
+let jokeData: { joke?: string; value?: string };
 
 const icanHadDad = 'https://icanhazdadjoke.com/';
 const chuckNorris = 'https://api.chucknorris.io/jokes/random';
 
-function isEmptyObject(obj: object) {
+function isEmptyObject(obj: Record<string, any>) {
   return Object.keys(obj).length === 0;
 }
+
 let jokeUrl: string;
-let voteIcon1 = document.getElementById('vote-1-img');
-let voteIcon2 = document.getElementById('vote-2-img');
-let voteIcon3 = document.getElementById('vote-3-img');
+let voteIcon1 = document.getElementById('vote-1-img') as HTMLImageElement;
+let voteIcon2 = document.getElementById('vote-2-img') as HTMLImageElement;
+let voteIcon3 = document.getElementById('vote-3-img') as HTMLImageElement;
+
+// METEO //
+
+async function getMeteo() {
+  try {
+    const response = await fetch(
+      'https://api.open-meteo.com/v1/forecast?latitude=41.3879&longitude=2.16992&current_weather=true',
+      {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+        },
+      }
+    );
+    const data = await response.json();
+    const tempText = document.getElementById('tempText');
+    if (tempText) {
+      tempText.innerHTML = data.current_weather.temperature + 'º';
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+getMeteo();
+
+///////////////////
 
 async function getJoke() {
+  // REMOVE BOUNCING //
+
   voteIcon1.classList.remove('bounce');
   voteIcon2.classList.remove('bounce');
   voteIcon3.classList.remove('bounce');
+
   let randomNumber = Math.floor(Math.random() * (2 - 1 + 1) + 1);
   if (randomNumber == 1) {
     jokeUrl = icanHadDad;
@@ -37,15 +68,14 @@ async function getJoke() {
 
     const data = await response.json();
     let jokeText = document.getElementById('joke');
-    if (jokeUrl == icanHadDad) {
-      jokeText.innerText = data.joke;
-      jokeData = data;
-      voteObject = {};
-      console.log(reportJokes);
-    }
-    if (jokeUrl == chuckNorris) {
-      jokeText.innerText = data.value;
-      jokeData = data;
+    if (jokeText) {
+      if (jokeUrl == icanHadDad) {
+        jokeText.innerText = data.joke;
+        jokeData = data;
+      } else if (jokeUrl == chuckNorris) {
+        jokeText.innerText = data.value;
+        jokeData = data;
+      }
       voteObject = {};
       console.log(reportJokes);
     }
@@ -61,7 +91,7 @@ const reportJokesListener = () => {
 
 //////// VOTACIONES //////////
 
-const reportJokes = [];
+const reportJokes: Record<string, any> = [];
 
 let voteObject: object = {};
 
