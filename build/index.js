@@ -16,8 +16,14 @@ function isEmptyObject(obj) {
     return Object.keys(obj).length === 0;
 }
 let jokeUrl;
+let voteIcon1 = document.getElementById('vote-1-img');
+let voteIcon2 = document.getElementById('vote-2-img');
+let voteIcon3 = document.getElementById('vote-3-img');
 function getJoke() {
     return __awaiter(this, void 0, void 0, function* () {
+        voteIcon1.classList.remove('bounce');
+        voteIcon2.classList.remove('bounce');
+        voteIcon3.classList.remove('bounce');
         let randomNumber = Math.floor(Math.random() * (2 - 1 + 1) + 1);
         if (randomNumber == 1) {
             jokeUrl = icanHadDad;
@@ -64,13 +70,10 @@ const reportJokes = [];
 let voteObject = {};
 const voteListener = (id) => {
     const date = new Date();
-    let voteIcon1 = document.getElementById('vote-1');
-    let voteIcon2 = document.getElementById('vote-2');
-    let voteIcon3 = document.getElementById('vote-3');
     if (id === 1) {
-        voteIcon1.classList.add('vote-icon-1-clicked');
-        voteIcon2.classList.remove('vote-icon-2-clicked');
-        voteIcon3.classList.remove('vote-icon-3-clicked');
+        voteIcon1.classList.add('bounce');
+        voteIcon2.classList.remove('bounce');
+        voteIcon3.classList.remove('bounce');
         if (jokeUrl == icanHadDad) {
             voteObject = {
                 joke: jokeData.joke,
@@ -87,9 +90,9 @@ const voteListener = (id) => {
         }
     }
     if (id === 2) {
-        voteIcon2.classList.add('vote-icon-2-clicked');
-        voteIcon1.classList.remove('vote-icon-1-clicked');
-        voteIcon3.classList.remove('vote-icon-3-clicked');
+        voteIcon2.classList.add('bounce');
+        voteIcon1.classList.remove('bounce');
+        voteIcon3.classList.remove('bounce');
         if (jokeUrl == icanHadDad) {
             voteObject = {
                 joke: jokeData.joke,
@@ -106,9 +109,9 @@ const voteListener = (id) => {
         }
     }
     if (id === 3) {
-        voteIcon3.classList.add('vote-icon-3-clicked');
-        voteIcon1.classList.remove('vote-icon-1-clicked');
-        voteIcon2.classList.remove('vote-icon-2-clicked');
+        voteIcon3.classList.add('bounce');
+        voteIcon1.classList.remove('bounce');
+        voteIcon2.classList.remove('bounce');
         if (jokeUrl == icanHadDad) {
             voteObject = {
                 joke: jokeData.joke,
@@ -125,6 +128,6 @@ const voteListener = (id) => {
         }
     }
 };
-////////////////////////// 
+//////////////////////////
 getNextJoke.addEventListener('click', getJoke);
 window.addEventListener('load', getJoke);
